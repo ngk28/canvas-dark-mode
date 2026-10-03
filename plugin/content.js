@@ -3,6 +3,11 @@ const DARK_MODE_ENABLED_KEY = "darkModeEnabled";
 const AUTO_SCHEDULE_ENABLED_KEY = "autoScheduleEnabled";
 const NIGHT_START_HOUR = 18;
 const NIGHT_END_HOUR = 6;
+const defaultSettings = {
+  [DARK_MODE_ENABLED_KEY]: true,
+  [AUTO_SCHEDULE_ENABLED_KEY]: false
+};
+let settings = { ...defaultSettings };
 let autoScheduleEnabled = false;
 let scheduleTimer;
 
@@ -20,7 +25,7 @@ function setDarkModeEnabled(enabled) {
   }
 }
 
-function applyStoredDarkMode(settings) {
+function applyStoredDarkMode() {
   autoScheduleEnabled = settings[AUTO_SCHEDULE_ENABLED_KEY];
   setDarkModeEnabled(getDarkModeEnabled(settings));
   scheduleNextUpdate();
@@ -52,22 +57,17 @@ function scheduleNextUpdate() {
   }
 
   scheduleTimer = setTimeout(() => {
-    chrome.storage.local.get({
-      [DARK_MODE_ENABLED_KEY]: true,
-      [AUTO_SCHEDULE_ENABLED_KEY]: true
-    }, applyStoredDarkMode);
+    applyStoredDarkMode();
   }, nextBoundary.getTime() - now.getTime());
 }
 
-chrome.storage.local.get({
-  [DARK_MODE_ENABLED_KEY]: true,
-  [AUTO_SCHEDULE_ENABLED_KEY]: false
-}, (settings) => {
+chrome.storage.local.get(defaultSettings, (storedSettings) => {
+  settings = storedSettings;
   if (document.head) {
-    applyStoredDarkMode(settings);
+    applyStoredDarkMode();
   } else {
     document.addEventListener("DOMContentLoaded", () => {
-      applyStoredDarkMode(settings);
+      applyStoredDarkMode();
     }, { once: true });
   }
 });
@@ -77,9 +77,14 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
     return;
   }
   if (changes[DARK_MODE_ENABLED_KEY] || changes[AUTO_SCHEDULE_ENABLED_KEY]) {
-    chrome.storage.local.get({
-      [DARK_MODE_ENABLED_KEY]: true,
-      [AUTO_SCHEDULE_ENABLED_KEY]: false
-    }, applyStoredDarkMode);
+    if (changes[DARK_MODE_ENABLED_KEY]) {
+      settings[DARK_MODE_ENABLED_KEY] =
+        changes[DARK_MODE_ENABLED_KEY].newValue ?? defaultSettings[DARK_MODE_ENABLED_KEY];
+    }
+    if (changes[AUTO_SCHEDULE_ENABLED_KEY]) {
+      settings[AUTO_SCHEDULE_ENABLED_KEY] =
+        changes[AUTO_SCHEDULE_ENABLED_KEY].newValue ?? defaultSettings[AUTO_SCHEDULE_ENABLED_KEY];
+    }
+    applyStoredDarkMode();
   }
 });
