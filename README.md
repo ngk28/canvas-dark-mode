@@ -2,6 +2,10 @@
 # Dark Mode for Canvas
 This extension adds a dark mode for canvas.
 
+Click the extension icon in Chrome to open the popup, then use the **Dark mode**
+toggle to turn the theme on or off. Your choice is saved and applies to Canvas
+pages automatically.
+
 ## Installation
 This extension is available on the [Chrome Web Store](https://chrome.google.com/webstore/detail/canvas-dark-mode/jbfgmfpakhabhhpefblmehnadjjkadna?utm_source=chrome-ntp-icon).
 

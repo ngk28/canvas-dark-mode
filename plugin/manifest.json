@@ -20,6 +20,19 @@
     },
     "default_title": "Canvas Dark Mode"
   },
+  "permissions": [
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "css/styles.css"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ],
   "default_locale": "en",
   "content_scripts": [
     {
@@ -227,8 +240,8 @@
         "https://canvas.moravian.edu/*",
         "https://canvas-prod.ccsnh.edu/*"
       ],
-      "css": [
-        "css/styles.css"
+      "js": [
+        "content.js"
       ]
     }
   ]
