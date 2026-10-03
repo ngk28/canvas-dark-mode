@@ -21,10 +21,10 @@
     "default_title": "Canvas Dark Mode"
   },
   "default_locale": "en",
-
   "content_scripts": [
     {
       "matches": [
+        "https://canvas.imperial.ac.uk/*",
         "https://*.instructure.com/*",
         "https://canvas.vt.edu/*",
         "https://canvas.oregonstate.edu/*",
@@ -227,8 +227,8 @@
         "https://canvas.moravian.edu/*",
         "https://canvas-prod.ccsnh.edu/*"
       ],
-      "css":[
-          "css/styles.css"
+      "css": [
+        "css/styles.css"
       ]
     }
   ]
