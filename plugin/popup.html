@@ -61,6 +61,12 @@
         input:checked + .slider:before {
             transform: translateX(24px);
         }
+        .schedule-row {
+            align-items: center;
+            display: flex;
+            gap: 8px;
+            margin: -12px 0 20px;
+        }
         input:focus-visible + .slider {
             outline: 2px solid #fff;
             outline-offset: 2px;
@@ -75,6 +81,10 @@
         <input id="dark-mode-toggle" type="checkbox" aria-label="Turn Canvas dark mode on or off">
         <span class="slider"></span>
     </label>
+</div>
+<div class="schedule-row">
+    <input id="auto-schedule-toggle" type="checkbox">
+    <label for="auto-schedule-toggle">Automatic schedule (18:00–06:00)</label>
 </div>
 <h1>Is Canvas Dark Mode Not Working?</h1>
 

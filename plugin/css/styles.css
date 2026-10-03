@@ -65,7 +65,7 @@ a {
 }
 
 
-.status-description, .title, .locked_title, .points_possible_display, .ic-DashboardCard__header-subtitle.ellipsis, .ic-DashboardCard__header-term.ellipsis, .css-srlb2k-view-link, .css-8bodfv-text, .ig-details__item
+.status-description, .title, .locked_title, .points_possible_display, .ic-DashboardCard__header-title.ellipsis, .ic-DashboardCard__header-subtitle.ellipsis, .ic-DashboardCard__header-term.ellipsis, .css-srlb2k-view-link, .css-8bodfv-text, .ig-details__item
 , h2, .comment, td, .score_value, .ic-Login__actions, .ic-Label{
     color: #C7CDD1 !important;
 }

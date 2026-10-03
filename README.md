@@ -6,6 +6,10 @@ Click the extension icon in Chrome to open the popup, then use the **Dark mode**
 toggle to turn the theme on or off. Your choice is saved and applies to Canvas
 pages automatically.
 
+The popup also includes an optional automatic schedule using your local clock.
+When enabled, dark mode is active from 18:00 until 06:00 and the manual toggle
+is temporarily disabled. Turn the schedule off to return to manual control.
+
 ## Installation
 This extension is available on the [Chrome Web Store](https://chrome.google.com/webstore/detail/canvas-dark-mode/jbfgmfpakhabhhpefblmehnadjjkadna?utm_source=chrome-ntp-icon).
 
