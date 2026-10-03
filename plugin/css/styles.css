@@ -13,13 +13,17 @@
 }
 
 .ic-DashboardCard, .ic-DashboardCard__header_content, .header,
-.ic-DashboardCard__action-container, .item-group-container, .ig-row, .header-bar-outer-container
+.ic-DashboardCard__action-container, .ig-row, .header-bar-outer-container
 , .tray-with-space-for-global-nav, .fLzZc_caGd, .fc-body, .fc-content, .fc-event-container,
 .comm-channel, .grouping, th, .table, .planner-day, .nothingPlannedContainer_hppr
 , .comments, .roster-tab, .rosterUser, .syllabus_assignment, tbody, .day_date, .table, .table-striped, .ic-flash-error,
 span[role=dialog], span[role=dialog] > div, .agenda-wrapper, .agenda-day, .agenda-event__container,
 .event-details, .rubric_title, .content_box {
     background-color: #282828 !important;
+}
+
+.item-group-container {
+    background-color: #1f1f1f !important;
 }
 
 .react-rubric tr, .react-rubric th {
@@ -61,9 +65,19 @@ a {
 }
 
 
-.status-description, .title, .locked_title, .points_possible_display,  .ig-details__item
-, .name, h2, .comment, td, .score_value, .ic-Login__actions, .ic-Label{
+.status-description, .title, .locked_title, .points_possible_display, .ic-DashboardCard__header-subtitle.ellipsis, .ic-DashboardCard__header-term.ellipsis, .css-srlb2k-view-link, .css-8bodfv-text, .ig-details__item
+, h2, .comment, td, .score_value, .ic-Login__actions, .ic-Label{
     color: #C7CDD1 !important;
+}
+
+h2 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+.name,
+.name.ellipsis {
+    color: #F5F5F5 !important;
 }
 
 .ic-sidebar-logo {
@@ -204,4 +218,31 @@ code{
 .student-grades-link {
     background-color: white !important;
     color: black !important;
+}
+
+/* Canvas sometimes applies these dark text colors inline. Keep them readable
+   without changing unrelated colors elsewhere on the page. */
+[style*="#22443c" i],
+[style*="rgb(34, 68, 60)" i],
+[style*="rgb(34,68,60)" i],
+[style*="#080842" i],
+[style*="rgb(8, 8, 66)" i],
+[style*="rgb(8,8,66)" i],
+[style*="#555a5c" i],
+[style*="rgb(85, 90, 92)" i],
+[style*="rgb(85,90,92)" i] {
+    color: #F5F5F5 !important;
+}
+
+[style*="#22443c" i] svg,
+[style*="rgb(34, 68, 60)" i] svg,
+[style*="rgb(34,68,60)" i] svg,
+[style*="#080842" i] svg,
+[style*="rgb(8, 8, 66)" i] svg,
+[style*="rgb(8,8,66)" i] svg,
+[style*="#555a5c" i] svg,
+[style*="rgb(85, 90, 92)" i] svg,
+[style*="rgb(85,90,92)" i] svg {
+    fill: #F5F5F5 !important;
+    stroke: #F5F5F5 !important;
 }
